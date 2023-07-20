@@ -10,7 +10,19 @@ app.use(cors());
 const users = [];
 
 function checksExistsUserAccount(request, response, next) {
-  // Complete aqui
+  const { username } = request.headers;
+
+  const user = users.find((user) => user.username === username);
+
+  if (!user) {
+    return response.status(404).json({
+      error: "User not found.",
+    });
+  }
+
+  request.user = user;
+
+  return next();
 }
 
 function checksCreateTodosUserAvailability(request, response, next) {
@@ -33,7 +45,9 @@ app.post("/users", (request, response) => {
   );
 
   if (usernameAlreadyExists) {
-    return response.status(400).json({ error: "Username already exists" });
+    return response.status(400).json({
+      error: "Username already exists",
+    });
   }
 
   const user = {
@@ -59,9 +73,9 @@ app.patch("/users/:id/pro", findUserById, (request, response) => {
   const { user } = request;
 
   if (user.pro) {
-    return response
-      .status(400)
-      .json({ error: "Pro plan is already activated." });
+    return response.status(400).json({
+      error: "Pro plan is already activated.",
+    });
   }
 
   user.pro = true;
@@ -125,7 +139,9 @@ app.delete(
     const todoIndex = user.todos.indexOf(todo);
 
     if (todoIndex === -1) {
-      return response.status(404).json({ error: "Todo not found" });
+      return response.status(404).json({
+        error: "Todo not found",
+      });
     }
 
     user.todos.splice(todoIndex, 1);
