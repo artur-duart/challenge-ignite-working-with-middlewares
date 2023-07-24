@@ -195,7 +195,7 @@ All other tests are the same tests found in challenge 01 with some (or no) chang
 
 ## :memo: License
 
-This project is licensed under the MIT license. See the [LICENSE]([https://github.com/git/git-scm.com/blob/master/MIT-LICENSE.txt](https://github.com/artur-duart/challenge-ignite-working-with-middlewares/blob/main/LICENSE) file for more details.
+This project is licensed under the MIT license. See the [LICENSE]([https://github.com/git/git-scm.com/blob/master/MIT-LICENSE.txt](https://github.com/artur-duart/challenge-ignite-working-with-middlewares/blob/main/LICENSE)) file for more details.
 
 ---
 
